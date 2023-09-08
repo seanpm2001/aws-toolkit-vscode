@@ -194,7 +194,7 @@ describe('FileViewerManager', function () {
         ]
     }
 
-    beforeEach(function () {
+    before(function () {
         s3 = createS3()
         fs = new VirualFileSystem()
 
@@ -208,6 +208,9 @@ describe('FileViewerManager', function () {
 
     afterEach(async function () {
         await closeAllEditors()
+    })
+
+    after(async function () {
         vscode.Disposable.from(...disposables).dispose()
     })
 
